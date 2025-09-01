@@ -80,7 +80,7 @@ const Services: React.FC = () => {
                   </div>
                   {service.recurringPrice && (
                     <div className="bg-primary-100 text-primary-600 px-4 py-2 rounded-xl font-semibold text-sm">
-                      Monthly starting at : ${service.recurringPrice}
+                      Weekly starting at : ${service.recurringPrice}
                     </div>
                   )}
                 </div>
