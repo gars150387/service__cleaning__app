@@ -2,3 +2,8 @@
   VITE_SUPABASE_URL = "https://areicxvvzoyqoguqcbeg.supabase.co"
   VITE_SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFyZWljeHZ2em95cW9ndXFjYmVnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTY2NzcyODUsImV4cCI6MjA3MjI1MzI4NX0.yt50xPD4zEJQ07JDMqiu8J7NxTf7moB53cW0RTv6pcQ"
   VITE_STRIPE_PUBLISHABLE_KEY = "pk_test_51S2jfoDewRHx81d1hSH4osX8NUQO9Ppy5cJpk9eullMT8qxxVm6GZNIc9hjFfCwqGDglWLBbXUmfRy83t2mroGJk00i9z7xzFE"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
