@@ -1,8 +1,19 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
 import { CheckCircle, Home } from 'lucide-react';
+import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import { getLastPaymentData, PaymentSuccessData } from '../services/webhookService';
 
 const PaymentSuccess: React.FC = () => {
+  const [paymentData, setPaymentData] = useState<PaymentSuccessData | null>(null);
+
+  useEffect(() => {
+    const data = getLastPaymentData();
+    setPaymentData(data);
+    
+    // Clear payment data after displaying (optional)
+    // clearPaymentData();
+  }, []);
+
   return (
     <div className="min-h-screen bg-neutral-50 flex items-center justify-center px-4">
       <div className="max-w-md w-full bg-white rounded-3xl shadow-lg p-8 text-center">
@@ -14,9 +25,18 @@ const PaymentSuccess: React.FC = () => {
           Payment Successful!
         </h1>
         
-        <p className="text-neutral-600 mb-8">
+        <p className="text-neutral-600 mb-4">
           Thank you for your booking. We'll send you a confirmation email shortly with all the details.
         </p>
+        
+        {paymentData && (
+          <div className="bg-neutral-50 rounded-xl p-4 mb-6 text-left">
+            <h3 className="font-semibold text-neutral-900 mb-2">Payment Details:</h3>
+            <p className="text-sm text-neutral-600">Amount: ${(paymentData.amount / 100).toFixed(2)}</p>
+            <p className="text-sm text-neutral-600">Email: {paymentData.customerEmail}</p>
+            <p className="text-sm text-neutral-600">Session ID: {paymentData.sessionId}</p>
+          </div>
+        )}
         
         <Link
           to="/"
